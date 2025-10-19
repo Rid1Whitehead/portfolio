@@ -39,7 +39,7 @@ a:hover { text-decoration: underline; }
 
 /* ---------- Header ---------- */
 header {
-  position: sticky; top: 0; z-index: 50;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   backdrop-filter: saturate(160%) blur(8px);
   background: color-mix(in oklab, var(--bg) 85%, transparent);
   border-bottom: 1px solid var(--border);
@@ -68,7 +68,7 @@ nav a:hover { opacity: 1; }
 .btn:hover { border-color: color-mix(in oklab, var(--text) 12%, transparent); }
 
 /* ---------- Hero ---------- */
-.hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; padding: 56px 0 40px; align-items: center; }
+.hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 32px; padding: 100px 0 40px; align-items: center; }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); }
 .hero .intro { padding: 28px; }
 .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); font-size: 12px; }
