@@ -3,29 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ridwan Whitehead — Research Portfolio</title>
-  <meta name="description" content="Doctoral researcher in computer vision and LLM-based methods for nonverbal behaviour in collaborative learning. Portfolio of publications, projects, tools, and reflections." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <meta property="og:title" content="Your Name — Research Portfolio" />
-  <meta property="og:description" content="Doctoral researcher in computer vision and LLM-based solutions for studying nonverbal behaviours in collaborative learning." />
+  <title>Ridwan Whitehead | Research Portfolio</title>
+  <meta name="description" content="Post-Doctoral Researcher at the University of Oulu studying how nonverbal behaviour shapes collaborative learning, using computer vision and multimodal LLMs." />
+  <link rel="canonical" href="https://rid1whitehead.github.io/portfolio/" />
+
+  <!-- Link previews -->
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=Your+Name" />
+  <meta property="og:url" content="https://rid1whitehead.github.io/portfolio/" />
+  <meta property="og:title" content="Ridwan Whitehead | Research Portfolio" />
+  <meta property="og:description" content="Post-Doctoral Researcher at the University of Oulu studying how nonverbal behaviour shapes collaborative learning, using computer vision and multimodal LLMs." />
+  <meta property="og:image" content="https://rid1whitehead.github.io/portfolio/media/photo.jpg" />
+  <meta property="og:image:alt" content="Portrait of Ridwan Whitehead" />
+  <meta name="twitter:card" content="summary" />
+
   <meta name="theme-color" content="#F6F5F1" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/main.css">
+  <script>
+    // Apply the saved or system theme before first paint to avoid a flash
+    (function(){
+      var saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      var dark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (dark) document.documentElement.classList.add('dark');
+    })();
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header>
     <div class="container nav">
-      <div class="brand">
-        <div class="avatar" aria-hidden="true" style="background-image:url('media/photo.jpg'); background-size:cover; background-position:center;"></div>
-        <div>
-          <h1>Ridwan Whitehead</h1>
-          <div class="role">Doctoral Researcher • Non-verbal in collaborative learning</div>
-        </div>
-      </div>
+      <a class="brand" href="#top">
+        <span class="brand-name">Ridwan Whitehead</span>
+        <span class="role">Post-Doctoral Researcher, University of Oulu</span>
+      </a>
       <nav aria-label="Primary">
         <ul>
           <li><a href="#projects">Projects</a></li>
@@ -33,166 +48,199 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <button class="btn" onclick="toggleTheme()" aria-label="Toggle theme">Toggle theme</button>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg>
+      </button>
     </div>
   </header>
 
-  <main class="container">
+  <main id="main" class="container">
     <!-- Hero -->
-    <section class="hero">
-      <div class="intro card">
-        <span class="eyebrow">Hello, I’m Ridwan Whitehead</span>
-        <h2 class="title">Non-verbal + regulation of learning + CV/MLLM methods = <span style="color: rgb(155, 8, 57);">my expertise.</span></h2>
-        <p class="subtitle">Intrigued by the role of non-verbal behaviors in regulation of learning, I build tools, datasets, and workflows to make sense of multimodal interaction data in the context of regulation of learning. I am part of the excellent team at the Learning, Education, and Technology Research Lab (LET Lab) at the University of Oulu.</p>
-        <div class="badges" aria-label="expertise areas">
-          <span class="badge">Socially Shared Regulation of Learning</span>
-          <span class="badge">Computer Vision</span>
-          <span class="badge">Multimodal Learning Analytics</span>
-          <span class="badge">(M)LLMs for Education</span>
-          <span class="badge">Non-verbal behaviours</span>
-          <span class="badge">Open Science</span>
+    <section class="hero" id="top">
+      <div class="intro">
+        <span class="eyebrow">Post-Doctoral Researcher · LET Lab, University of Oulu</span>
+        <h1 class="title">I study how <span class="highlight">gaze, posture and proximity</span> shape collaborative learning.</h1>
+        <p class="subtitle">I build computer vision and multimodal LLM methods that turn classroom video into evidence about how groups regulate their learning together. All of my methods are open source. I am part of the Learning, Education and Technology Research Lab (LET Lab) at the University of Oulu, Finland.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noopener">Download CV</a>
+          <a class="btn" href="mailto:ridwan.whitehead@oulu.fi">Email me</a>
+          <a class="btn" href="https://scholar.google.com/citations?user=q07J89kAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
         </div>
-        <div class="meta" style="margin-top:14px">
-          <a class="chip" href="#publications">Recent pubs</a>
-          <a class="chip" href="#projects">Featured projects</a>
-          <a class="chip" href="./cv.pdf">Download CV</a>
-          <a class="chip" href="mailto:ridwan.whitehead@oulu.fi">Email</a>
-        </div>
+        <ul class="badges" aria-label="Research areas">
+          <li class="badge">Socially shared regulation of learning</li>
+          <li class="badge">Computer vision</li>
+          <li class="badge">Multimodal learning analytics</li>
+          <li class="badge">(M)LLMs for education</li>
+          <li class="badge">Nonverbal behaviour</li>
+          <li class="badge">Open science</li>
+        </ul>
       </div>
-      <div class="aside card">
-        <img src="media/photo.jpg" alt="Ridwan Whitehead portrait" style="width:100%; aspect-ratio:1; object-fit:cover; border-radius: var(--radius); border: 1px solid var(--border); display:block;"/>
-      </div>
+      <figure class="portrait">
+        <img src="media/photo.jpg" width="1042" height="894" alt="Portrait of Ridwan Whitehead" />
+      </figure>
     </section>
 
-    <!-- Projects (merged with tools/workflows) -->
+    <ul class="stats" aria-label="Highlights">
+      <li><strong>PhD 2026</strong><span>Educational Sciences, University of Oulu</span></li>
+      <li><strong>30+</strong><span>Journal articles peer reviewed</span></li>
+      <li><strong>200+ h</strong><span>Teaching in the LET Master's Programme</span></li>
+      <li><strong>300+ h</strong><span>Of data collection work saved by my tools</span></li>
+    </ul>
+
+    <!-- Projects -->
     <section id="projects">
       <div class="section-head">
         <h2>Projects</h2>
         <div class="filters">
-          <input id="projectFilter" class="btn" placeholder="Search…" oninput="filterProjects()" />
-          <span class="tag" data-tag="workflow" onclick="toggleTag(this)">Workflow</span>
-          <span class="tag" data-tag="tool" onclick="toggleTag(this)">Tool</span>
-          <span class="tag" data-tag="publication" onclick="toggleTag(this)">Publication</span>
-          <span class="tag" data-tag="app" onclick="toggleTag(this)">App</span>
-          <span class="tag" data-tag="fun" onclick="toggleTag(this)">For fun</span>
+          <label class="visually-hidden" for="projectFilter">Search projects</label>
+          <input id="projectFilter" class="search" type="search" placeholder="Search projects" />
+          <div class="tags" role="group" aria-label="Filter projects by type">
+            <button type="button" class="tag" data-tag="workflow" aria-pressed="false">Workflow</button>
+            <button type="button" class="tag" data-tag="tool" aria-pressed="false">Tool</button>
+            <button type="button" class="tag" data-tag="app" aria-pressed="false">App</button>
+            <button type="button" class="tag" data-tag="publication" aria-pressed="false">Publication</button>
+            <button type="button" class="tag" data-tag="fun" aria-pressed="false">For fun</button>
+          </div>
         </div>
       </div>
+
       <div id="projectGrid" class="grid">
-        <article class="tile col-4" data-tags="workflow app tool" data-link="https://github.com/Rid1Whitehead/OBS-MIDI-Controller/tree/OBS-OSC-Controller">
-          <img class="thumb" loading="lazy" src="media/OBS-dashboard.png" alt="OBS-dashboard preview"/>
-          <div class="content">
-            <h3>Multimodal data collection dashboard</h3>
-            <p>A dashboard to synchronize and collect video and audio data from multiple cameras and microphones on separate devices. Used in the LEAD project to save +300 hours of manpower.</p>
-            <div class="meta">
-              <span class="chip">Multimodal data collection</span>
-              <a class="chip" href="#">App</a>
-              <a class="chip" href="#">Tool</a>
-              <a class="chip" href="#">Dashboard</a>
-              
-            </div>
-          </div>
-        </article>
-        <article class="tile col-4" data-tags="workflow tool publication" data-link="https://github.com/Rid1Whitehead/OBS-MIDI-Controller/tree/OBS-OSC-Controller">
-          <img class="thumb" loading="lazy" src="media/gaze_example.png" alt="gaze analysis example"/>
-          <div class="content">
-            <h3>Gaze analysis from 2D video</h3>
-            <p>A workflow to analyze gaze behaviour from only 2D video. Usable with traditional front facing video camera settings.</p>
-            <div class="meta">
-              <span class="chip">Gaze behaviour analysis</span>
-              <a class="chip" href="#">Workflow</a>
-              <a class="chip" href="#">Tool</a>
-              <a class="chip" href="#">Publication</a>
-            </div>
-          </div>
-        </article>
         <article class="tile col-4" data-tags="workflow tool publication">
-          <img class="thumb" loading="lazy" src="media/proxemics_example.png" alt="Proxemics analysis example"/>
+          <a class="thumb-link" href="https://doi.org/10.1111/jcal.13022" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img class="thumb" loading="lazy" src="media/gaze-analysis.webp" width="1069" height="586" alt="" />
+          </a>
+          <div class="content">
+            <h3><a href="https://doi.org/10.1111/jcal.13022" target="_blank" rel="noopener">Gaze analysis from 2D video</a></h3>
+            <p>A workflow for analysing gaze behaviour in groups using only ordinary front-facing 2D video, with no eye trackers required.</p>
+            <div class="meta">
+              <a class="chip link" href="https://doi.org/10.1111/jcal.13022" target="_blank" rel="noopener">Paper: JCAL 2024</a>
+              <a class="chip link" href="https://doi.org/10.18608/jla.2025.8661" target="_blank" rel="noopener">Paper: JLA 2025</a>
+              <span class="chip">Computer vision</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile col-4" data-tags="workflow tool publication">
+          <img class="thumb" loading="lazy" src="media/proxemics-analysis.webp" width="1200" height="676" alt="" />
           <div class="content">
             <h3>Proxemics analysis from 2D video</h3>
-            <p>I built a novel workflow to analyze proxemics from 2D video. Used in the LEAD project to analyze proxemics in collaborative learning.</p>
+            <p>A novel workflow for measuring how close group members sit and move relative to each other. Used in the LEAD project to study proxemics in collaborative learning.</p>
             <div class="meta">
-              <span class="chip">Proxemics analysis</span>
-              <span class="chip">Multimodal</span>
-              <a class="chip" href="#">Workflow</a>
-              <a class="chip" href="#">Tool</a>
-              <a class="chip" href="#">Publication</a>
+              <span class="chip">Paper: IJCSCL 2026</span>
+              <span class="chip">Computer vision</span>
             </div>
           </div>
         </article>
-        <article class="tile col-4" data-tags="workflow publication" data-link="https://github.com/Rid1Whitehead/MLLM-video-analysis">
-          <img class="thumb" loading="lazy" src="media/MLLM-posture.png" alt="Embodied Coding Tutor UI"/>
+
+        <article class="tile col-4" data-tags="workflow tool publication">
+          <a class="thumb-link" href="https://doi.org/10.18608/jla.2025.8595" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img class="thumb" loading="lazy" src="media/mllm-posture.webp" width="1014" height="601" alt="" />
+          </a>
           <div class="content">
-            <h3>MLLM-based posture analysis</h3>
-            <p>Early experimentation with large scale MLLM-based posture analysis in collaborative learning from 2D video. Results published in Journal of Learning Analytics.</p>
+            <h3><a href="https://doi.org/10.18608/jla.2025.8595" target="_blank" rel="noopener">MLLM-based posture analysis</a></h3>
+            <p>Large-scale posture analysis of collaborative learning video with multimodal large language models, plus a dashboard for running custom analyses.</p>
             <div class="meta">
-              <span class="chip">Applied</span>
-              <span class="chip">Education</span>
-              <a class="chip" href="#">Publication</a>
-              <a class="chip" href="#">Workflow</a>
+              <a class="chip link" href="https://doi.org/10.18608/jla.2025.8595" target="_blank" rel="noopener">Paper: JLA 2025</a>
+              <a class="chip link" href="https://github.com/Rid1Whitehead/MLLM-video-analysis" target="_blank" rel="noopener">Code</a>
+              <a class="chip link" href="https://github.com/Rid1Whitehead/GMA_dashboard" target="_blank" rel="noopener">Dashboard</a>
             </div>
           </div>
         </article>
-        <article class="tile col-4" data-tags="app" data-link="https://github.com/Rid1Whitehead/image-annotation-flask-app">
-          <img class="thumb" loading="lazy" src="media/annotation-webapp.png" alt="mmla-cookiecutter"/>
+
+        <article class="tile col-4" data-tags="tool app workflow">
+          <a class="thumb-link" href="https://github.com/Rid1Whitehead/OBS-MIDI-Controller/tree/OBS-OSC-Controller" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img class="thumb contain" loading="lazy" src="media/obs-dashboard.webp" width="1039" height="587" alt="" />
+          </a>
           <div class="content">
-            <h3>Image annotation app</h3>
-            <p>Who knew that there is not a readily available image annotation tool for research purposes? So, I built one. Available on Github.</p>
+            <h3><a href="https://github.com/Rid1Whitehead/OBS-MIDI-Controller/tree/OBS-OSC-Controller" target="_blank" rel="noopener">Multimodal data collection dashboard</a></h3>
+            <p>Synchronises video and audio recording across multiple cameras and microphones on separate devices. Saved the LEAD project more than 300 hours of work.</p>
             <div class="meta">
-              <a class="chip" href="#">App</a>
+              <a class="chip link" href="https://github.com/Rid1Whitehead/OBS-MIDI-Controller/tree/OBS-OSC-Controller" target="_blank" rel="noopener">Code</a>
               <span class="chip">Python</span>
-              <span class="chip">DVC</span>
+              <span class="chip">OBS</span>
             </div>
           </div>
         </article>
-        <article class="tile col-4" data-tags="tool library">
-          <img class="thumb" loading="lazy" src="media/script-image.jpg" alt="script-image"/>
+
+        <article class="tile col-4" data-tags="app tool">
+          <a class="thumb-link" href="https://github.com/Rid1Whitehead/image-annotation-flask-app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <img class="thumb contain" loading="lazy" src="media/annotation-app.webp" width="1200" height="368" alt="" />
+          </a>
           <div class="content">
-            <h3>LLMs for automatic coding of collaborative learning events</h3>
-            <p>I explored the use of LLMs for automatic coding of collaborative learning events in the context of regulation of learning. Demonstrated high reliability of LLM-based coding, comparable to human coders. Results NOT published.</p>
+            <h3><a href="https://github.com/Rid1Whitehead/image-annotation-flask-app" target="_blank" rel="noopener">Image annotation app</a></h3>
+            <p>I couldn't find a simple image annotation tool for research, so I built one. Define your own categories, step through a folder of images and export the labels to CSV.</p>
             <div class="meta">
-              <a class="chip" href="#">PyPI</a>
-              <a class="chip" href="#">Docs</a>
+              <a class="chip link" href="https://github.com/Rid1Whitehead/image-annotation-flask-app" target="_blank" rel="noopener">Code</a>
+              <span class="chip">Python</span>
+              <span class="chip">Flask</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile col-4" data-tags="workflow">
+          <img class="thumb" loading="lazy" src="media/llm-coding.webp" width="1200" height="676" alt="" />
+          <div class="content">
+            <h3>LLMs for coding collaborative learning events</h3>
+            <p>Automatic coding of regulation-of-learning events with LLMs. The LLM-based coding reached reliability comparable to trained human coders.</p>
+            <div class="meta">
+              <span class="chip">Unpublished work</span>
+              <span class="chip">LLMs</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="tile col-4" data-tags="fun app">
+          <a class="thumb-link" href="https://github.com/Rid1Whitehead/halloween-judgement-app" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true">
+            <div class="thumb thumb-fun"><span>🎃</span></div>
+          </a>
+          <div class="content">
+            <h3><a href="https://github.com/Rid1Whitehead/halloween-judgement-app" target="_blank" rel="noopener">Halloween costume judge</a></h3>
+            <p>A party trick: put it on a big screen with a webcam and let an AI judge everyone's Halloween costume.</p>
+            <div class="meta">
+              <a class="chip link" href="https://github.com/Rid1Whitehead/halloween-judgement-app" target="_blank" rel="noopener">Code</a>
+              <span class="chip">Webcam</span>
             </div>
           </div>
         </article>
       </div>
+      <p id="projectEmpty" class="empty" hidden>No projects match. <button type="button" class="link-btn" id="clearFilters">Clear filters</button></p>
     </section>
 
     <!-- Publications -->
     <section id="publications">
       <div class="section-head">
         <h2>Publications</h2>
-        <div class="filters">
-          <a class="btn" id="scholarLink" href="https://scholar.google.com/citations?user=q07J89kAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-        </div>
+        <a class="btn" href="https://scholar.google.com/citations?user=q07J89kAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
       </div>
-      <div id="pubList" class="grid"></div>
-      <div class="meta" style="margin-top:12px">
-        <small>Auto-fetched from Semantic Scholar.</small>
+      <div id="pubList" class="pub-list" aria-live="polite">
+        <p class="empty">Loading publications…</p>
       </div>
+      <p class="note">Updated automatically from Semantic Scholar.</p>
     </section>
 
     <!-- Contact -->
     <section id="contact">
       <div class="section-head">
-        <h2>Contact & Links</h2>
+        <h2>Contact</h2>
       </div>
       <div class="grid">
         <div class="tile col-8">
           <div class="content">
-            <h3>Let’s talk</h3>
-            <p>Email: <a href="mailto:ridwan.whitehead@oulu.fi">ridwan.whitehead@oulu.fi</a> • GitHub: <a href="https://github.com/Rid1Whitehead">@Rid1Whitehead</a> • LinkedIN: <a href="https://www.linkedin.com/in/ridwanwhitehead/">@Ridwanwhitehead</a></p>
-            <p>Open for collaborations around multimodal learning analytics, educational technology, and vision+LLM methods.</p>
+            <h3>Let's talk</h3>
+            <p>I am open to collaborations on multimodal learning analytics, educational technology, and computer vision and LLM methods for studying learning.</p>
+            <a class="btn btn-primary contact-btn" href="mailto:ridwan.whitehead@oulu.fi">ridwan.whitehead@oulu.fi</a>
           </div>
         </div>
         <div class="tile col-4">
           <div class="content">
-            <h3>Quick links</h3>
-            <ul>
-              <li><a href="#publications">Publications</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#reflections">Reflections</a></li>
-              <li><a href="./cv.pdf">CV (PDF)</a></li>
+            <h3>Elsewhere</h3>
+            <ul class="link-list">
+              <li><a href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a></li>
+              <li><a href="https://scholar.google.com/citations?user=q07J89kAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a></li>
+              <li><a href="https://orcid.org/0009-0002-2888-7304" target="_blank" rel="noopener">ORCID</a></li>
+              <li><a href="https://github.com/Rid1Whitehead" target="_blank" rel="noopener">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/ridwanwhitehead/" target="_blank" rel="noopener">LinkedIn</a></li>
             </ul>
           </div>
         </div>
@@ -201,11 +249,7 @@
   </main>
 
   <footer class="container">
-    <div class="footer-grid">
-      <div class="col-12">
-        <small>© <span id="year"></span> Ridwan Whitehead. Built with vanilla HTML/CSS/JS -- Thank you ChatGPT <3 --- . Hosted on GitHub Pages.</small>
-      </div>
-    </div>
+    <small>© <span id="year"></span> Ridwan Whitehead. Built with HTML, CSS and JavaScript. Thank you, Claude. Hosted on GitHub Pages.</small>
   </footer>
 
   <script src="assets/main.js"></script>
