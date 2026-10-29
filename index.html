@@ -4,14 +4,14 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ridwan Whitehead | Research Portfolio</title>
-  <meta name="description" content="Post-Doctoral Researcher at the University of Oulu studying how nonverbal behaviour shapes collaborative learning, using computer vision and multimodal LLMs." />
+  <meta name="description" content="Post-Doctoral Researcher at the University of Oulu. I study how nonverbal behaviour shapes collaborative learning, and work with companies to tackle metacognitive laziness in AI-supported learning." />
   <link rel="canonical" href="https://rid1whitehead.github.io/portfolio/" />
 
   <!-- Link previews -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://rid1whitehead.github.io/portfolio/" />
   <meta property="og:title" content="Ridwan Whitehead | Research Portfolio" />
-  <meta property="og:description" content="Post-Doctoral Researcher at the University of Oulu studying how nonverbal behaviour shapes collaborative learning, using computer vision and multimodal LLMs." />
+  <meta property="og:description" content="Post-Doctoral Researcher at the University of Oulu. I study how nonverbal behaviour shapes collaborative learning, and work with companies to tackle metacognitive laziness in AI-supported learning." />
   <meta property="og:image" content="https://rid1whitehead.github.io/portfolio/media/photo.jpg" />
   <meta property="og:image:alt" content="Portrait of Ridwan Whitehead" />
   <meta name="twitter:card" content="summary" />
@@ -43,7 +43,8 @@
       </a>
       <nav aria-label="Primary">
         <ul>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#industry">Industry</a></li>
           <li><a href="#publications">Publications</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -60,8 +61,8 @@
     <section class="hero" id="top">
       <div class="intro">
         <span class="eyebrow">Post-Doctoral Researcher · LET Lab, University of Oulu</span>
-        <h1 class="title">I study how <span class="highlight">gaze, posture and proximity</span> shape collaborative learning.</h1>
-        <p class="subtitle">I build computer vision and multimodal LLM methods that turn classroom video into evidence about how groups regulate their learning together. All of my methods are open source. I am part of the Learning, Education and Technology Research Lab (LET Lab) at the University of Oulu, Finland.</p>
+        <h1 class="title">I study how people <span class="hl-research">learn together</span>, and how to design AI that <span class="hl-industry">keeps them thinking</span>.</h1>
+        <p class="subtitle">My work has two sides. As a researcher, I build computer vision and multimodal LLM methods that reveal how gaze, posture and proximity shape collaborative learning. In industry collaborations, I work with companies to tackle metacognitive laziness: the tendency to let AI do our thinking for us. I am part of the Learning, Education and Technology Research Lab (LET Lab) at the University of Oulu, Finland.</p>
         <div class="cta">
           <a class="btn btn-primary" href="cv.pdf" target="_blank" rel="noopener">Download CV</a>
           <a class="btn" href="mailto:ridwan.whitehead@oulu.fi">Email me</a>
@@ -73,6 +74,7 @@
           <li class="badge">Multimodal learning analytics</li>
           <li class="badge">(M)LLMs for education</li>
           <li class="badge">Nonverbal behaviour</li>
+          <li class="badge">Metacognition and AI</li>
           <li class="badge">Open science</li>
         </ul>
       </div>
@@ -85,13 +87,43 @@
       <li><strong>PhD 2026</strong><span>Educational Sciences, University of Oulu</span></li>
       <li><strong>30+</strong><span>Journal articles peer reviewed</span></li>
       <li><strong>200+ h</strong><span>Teaching in the LET Master's Programme</span></li>
-      <li><strong>300+ h</strong><span>Of data collection work saved by my tools</span></li>
+      <li><strong>2026–2027</strong><span>Business Finland co-creation project</span></li>
     </ul>
 
-    <!-- Projects -->
-    <section id="projects">
+    <!-- Two sides -->
+    <section class="tracks" aria-labelledby="tracksHeading">
+      <h2 id="tracksHeading" class="visually-hidden">Two sides of my work</h2>
+      <a class="track-card track-research" href="#research">
+        <span class="kicker">Research</span>
+        <h3>Nonverbal behaviour in collaborative learning</h3>
+        <p>Open-source computer vision and multimodal LLM methods that turn ordinary classroom video into evidence about how groups regulate their learning.</p>
+        <ul class="track-points">
+          <li>Gaze, posture and proxemics from 2D video</li>
+          <li>Socially shared regulation of learning</li>
+          <li>Multimodal learning analytics</li>
+        </ul>
+        <span class="track-more">See research projects</span>
+      </a>
+      <a class="track-card track-industry" href="#industry">
+        <span class="kicker">Industry collaboration</span>
+        <h3>Tackling metacognitive laziness</h3>
+        <p>I work with companies to design AI features that support learners' self-regulation instead of replacing it, so people keep doing the thinking that makes learning stick.</p>
+        <ul class="track-points">
+          <li>Research-based design of AI learning features</li>
+          <li>Co-creation with company teams</li>
+          <li>Evaluating impact on learners' self-regulation</li>
+        </ul>
+        <span class="track-more">See industry work</span>
+      </a>
+    </section>
+
+    <!-- Research -->
+    <section id="research" class="track-research">
       <div class="section-head">
-        <h2>Projects</h2>
+        <div>
+          <span class="kicker">Research</span>
+          <h2>Nonverbal behaviour in collaborative learning</h2>
+        </div>
         <div class="filters">
           <label class="visually-hidden" for="projectFilter">Search projects</label>
           <input id="projectFilter" class="search" type="search" placeholder="Search projects" />
@@ -207,6 +239,53 @@
       <p id="projectEmpty" class="empty" hidden>No projects match. <button type="button" class="link-btn" id="clearFilters">Clear filters</button></p>
     </section>
 
+    <!-- Industry -->
+    <section id="industry" class="track-industry">
+      <div class="section-head">
+        <div>
+          <span class="kicker">Industry collaboration</span>
+          <h2>Tackling metacognitive laziness</h2>
+        </div>
+      </div>
+      <div class="grid">
+        <div class="tile col-6 problem">
+          <div class="content">
+            <h3>The problem</h3>
+            <p>Generative AI makes it easy to hand over the hardest parts of learning: planning, monitoring progress and reflecting on what worked. This is known as metacognitive laziness. The output looks good in the moment, but the skills that make people effective, independent learners quietly weaken.</p>
+            <p>The question I work on with companies is how to build AI that helps people learn without doing their thinking for them.</p>
+          </div>
+        </div>
+        <div class="tile col-6">
+          <div class="content">
+            <h3>How I work with companies</h3>
+            <ol class="steps">
+              <li><span><strong>Understand.</strong> Pin down, together with your team, where users hand their thinking over to AI.</span></li>
+              <li><span><strong>Design.</strong> Turn research on self-regulated learning into concrete features, such as metacognitive prompts, reflection moments and adaptive support.</span></li>
+              <li><span><strong>Evaluate.</strong> Run studies that test whether features build learners' self-regulation skills, not just short-term performance.</span></li>
+            </ol>
+          </div>
+        </div>
+        <div class="tile col-8">
+          <div class="content">
+            <h3>Grounded in research</h3>
+            <p>I coordinate a Business Finland co-creation project (2026–2027) at the LET Lab, building on our studies of AI agents that support regulation in collaborative learning.</p>
+            <div class="meta">
+              <span class="chip">GenAI-based metacognitive prompting: BJET, in press</span>
+              <a class="chip link" href="https://doi.org/10.1111/bjet.13534" target="_blank" rel="noopener">Human-AI collaboration: BJET 2025</a>
+              <a class="chip link" href="https://doi.org/10.1145/3640794.3665585" target="_blank" rel="noopener">MAI speech agent: CUI 2024</a>
+            </div>
+          </div>
+        </div>
+        <div class="tile col-4 cta-tile">
+          <div class="content">
+            <h3>Building AI for learning?</h3>
+            <p>If your product uses AI to support learners or employees, I'd like to hear from you.</p>
+            <a class="btn btn-track" href="mailto:ridwan.whitehead@oulu.fi?subject=Industry%20collaboration">Get in touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Publications -->
     <section id="publications">
       <div class="section-head">
@@ -228,7 +307,7 @@
         <div class="tile col-8">
           <div class="content">
             <h3>Let's talk</h3>
-            <p>I am open to collaborations on multimodal learning analytics, educational technology, and computer vision and LLM methods for studying learning.</p>
+            <p>I am open to research collaborations on multimodal learning analytics and computer vision and LLM methods for studying learning, and to working with companies that want their AI products to strengthen how people learn.</p>
             <a class="btn btn-primary contact-btn" href="mailto:ridwan.whitehead@oulu.fi">ridwan.whitehead@oulu.fi</a>
           </div>
         </div>
