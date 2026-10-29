@@ -4,113 +4,103 @@ window.addEventListener('DOMContentLoaded', () => {
   if (y) y.textContent = new Date().getFullYear();
 });
 
-// Theme toggle (light default)
-function toggleTheme(){
-  const r = document.documentElement;
-  const isDark = r.classList.toggle('dark');
-  localStorage.setItem('theme', isDark ? 'dark' : 'light');
+// --- Theme toggle (initial theme is set by an inline script in <head>) ---
+function syncThemeUI(){
+  const isDark = document.documentElement.classList.contains('dark');
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.setAttribute('content', isDark ? '#111827' : '#F6F5F1');
+  const btn = document.getElementById('themeToggle');
+  if (btn) btn.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
 }
-(function(){
-  const saved = localStorage.getItem('theme');
-  if (saved === 'dark') document.documentElement.classList.add('dark');
-})();
+function toggleTheme(){
+  const isDark = document.documentElement.classList.toggle('dark');
+  try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
+  syncThemeUI();
+}
+window.addEventListener('DOMContentLoaded', () => {
+  syncThemeUI();
+  document.getElementById('themeToggle')?.addEventListener('click', toggleTheme);
+});
 
 // --- Projects: search + tag filters ---
 const activeTags = new Set();
-function toggleTag(el){
-  el.classList.toggle('active');
-  const t = el.dataset.tag;
-  activeTags.has(t) ? activeTags.delete(t) : activeTags.add(t);
-  filterProjects();
-}
 function filterProjects(){
-  const q = (document.getElementById('projectFilter')?.value || '').toLowerCase();
+  const q = (document.getElementById('projectFilter')?.value || '').trim().toLowerCase();
+  let shown = 0;
   document.querySelectorAll('#projectGrid .tile').forEach(card => {
-    const text = card.innerText.toLowerCase();
-    const tags = (card.getAttribute('data-tags')||'').split(/\s+/);
+    const text = card.textContent.toLowerCase();
+    const tags = (card.getAttribute('data-tags') || '').split(/\s+/);
     const matchText = text.includes(q);
-    const matchTags = activeTags.size===0 || [...activeTags].every(t => tags.includes(t));
-    card.style.display = (matchText && matchTags) ? '' : 'none';
+    const matchTags = activeTags.size === 0 || [...activeTags].every(t => tags.includes(t));
+    const visible = matchText && matchTags;
+    card.hidden = !visible;
+    if (visible) shown++;
   });
+  const empty = document.getElementById('projectEmpty');
+  if (empty) empty.hidden = shown > 0;
 }
-
-// --- Reflections: search + tag filters ---
-const activePostTags = new Set();
-function togglePostTag(el){
-  el.classList.toggle('active');
-  const t = el.dataset.tag;
-  activePostTags.has(t) ? activePostTags.delete(t) : activePostTags.add(t);
-  filterPosts();
-}
-function filterPosts(){
-  const q = (document.getElementById('postFilter')?.value || '').toLowerCase();
-  document.querySelectorAll('#postGrid .tile').forEach(card => {
-    const text = card.innerText.toLowerCase();
-    const tags = (card.getAttribute('data-tags')||'').split(/\s+/);
-    const matchText = text.includes(q);
-    const matchTags = activePostTags.size===0 || [...activePostTags].every(t => tags.includes(t));
-    card.style.display = (matchText && matchTags) ? '' : 'none';
+window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('projectFilter')?.addEventListener('input', filterProjects);
+  document.querySelectorAll('.tags .tag').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const t = btn.dataset.tag;
+      const on = !activeTags.has(t);
+      on ? activeTags.add(t) : activeTags.delete(t);
+      btn.setAttribute('aria-pressed', String(on));
+      filterProjects();
+    });
   });
-}
+  document.getElementById('clearFilters')?.addEventListener('click', () => {
+    activeTags.clear();
+    document.querySelectorAll('.tags .tag').forEach(b => b.setAttribute('aria-pressed', 'false'));
+    const input = document.getElementById('projectFilter');
+    if (input) input.value = '';
+    filterProjects();
+  });
+});
 
 // --- Publications: auto from Semantic Scholar ---
-// Replace with your author ID (from your S2 URL, e.g., .../author/Name/1234567 -> '1234567').
 const AUTHOR_ID = '2297762953';
+const SCHOLAR_URL = 'https://scholar.google.com/citations?user=q07J89kAAAAJ&hl=en';
+
+function escapeHTML(s){
+  return String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
 
 async function loadPublications(){
-  if(!AUTHOR_ID || AUTHOR_ID.startsWith('REPLACE_')) return; // skip until configured
-  const fields = ['title','year','venue','url','openAccessPdf','authors'].join(',');
+  const grid = document.getElementById('pubList');
+  if (!grid) return;
+  const fields = ['title','year','venue','url','openAccessPdf','authors','externalIds'].join(',');
   const api = `https://api.semanticscholar.org/graph/v1/author/${AUTHOR_ID}/papers?limit=100&fields=${fields}`;
   try {
     const res = await fetch(api);
-    if(!res.ok) throw new Error('Failed to fetch publications');
+    if (!res.ok) throw new Error('Failed to fetch publications');
     const data = await res.json();
-    const list = (data?.data || []).sort((a,b)=>(b.year||0)-(a.year||0));
-    const grid = document.getElementById('pubList');
+    const list = (data?.data || []).sort((a,b) => (b.year || 0) - (a.year || 0));
     grid.innerHTML = '';
     list.forEach(p => {
-      const authors = (p.authors||[]).map(x=>x.name).join(', ');
-      const link = (p.openAccessPdf && p.openAccessPdf.url) || p.url || '#';
-      const year = p.year ? `, ${p.year}` : '';
-      const venue = p.venue || '';
+      const authors = (p.authors || [])
+        .map(a => /whitehead/i.test(a.name) ? `<strong>${escapeHTML(a.name)}</strong>` : escapeHTML(a.name))
+        .join(', ');
+      // Prefer the publisher's DOI page, then Semantic Scholar's page
+      const doi = p.externalIds?.DOI;
+      const link = doi ? `https://doi.org/${encodeURI(doi)}` : (p.url || p.openAccessPdf?.url || SCHOLAR_URL);
+      const pdf = p.openAccessPdf?.url;
       const card = document.createElement('article');
-      card.className = 'tile col-12';
+      card.className = 'pub';
       card.innerHTML = `
-        <div class="content pub">
-          <div class="pub-title"><a href="${link}" target="_blank" rel="noopener">${p.title}</a></div>
-          <div class="authors">${authors}</div>
-          <div class="venue">${venue}${year}</div>
+        <div class="pub-year">${escapeHTML(p.year || '')}</div>
+        <div>
+          <div class="pub-title"><a href="${escapeHTML(link)}" target="_blank" rel="noopener">${escapeHTML(p.title)}</a></div>
+          <div class="pub-authors">${authors}</div>
+          ${p.venue ? `<div class="pub-venue">${escapeHTML(p.venue)}</div>` : ''}
+          ${pdf ? `<div class="pub-links"><a class="chip link" href="${escapeHTML(pdf)}" target="_blank" rel="noopener">Open access PDF</a></div>` : ''}
         </div>`;
       grid.appendChild(card);
     });
-  } catch (err) { console.error(err); }
+  } catch (err) {
+    console.error(err);
+    grid.innerHTML = `<p class="empty">Publications could not be loaded right now. See the full list on <a href="${SCHOLAR_URL}" target="_blank" rel="noopener">Google Scholar</a>.</p>`;
+  }
 }
 window.addEventListener('DOMContentLoaded', loadPublications);
-
-// --- Make project thumbnails clickable to their link ---
-window.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('#projectGrid .tile .thumb').forEach(img => {
-    img.style.cursor = 'pointer';
-    img.addEventListener('click', (e) => {
-      const tile = e.currentTarget.closest('.tile');
-      if (!tile) return;
-      const explicit = tile.getAttribute('data-link');
-      let href = explicit && explicit !== '#' ? explicit : null;
-      if (!href) {
-        const preferred = tile.querySelector('.meta a[href]:not([href="#"])');
-        const any = preferred || tile.querySelector('.meta a[href]');
-        href = any ? any.getAttribute('href') : null;
-      }
-      if (href) {
-        const targetBlank = /^https?:\/\//i.test(href) || href.startsWith('//');
-        if (targetBlank) {
-          window.open(href, '_blank', 'noopener');
-        } else {
-          window.location.href = href;
-        }
-      }
-    });
-  });
-});
