@@ -163,10 +163,19 @@ nav a:hover { color: var(--accent); text-decoration: none; }
 .steps strong { color: var(--text); }
 .track-industry .chip.link { color: var(--industry); background: color-mix(in oklab, var(--industry) 8%, var(--surface)); border-color: color-mix(in oklab, var(--industry) 30%, var(--border)); }
 .track-industry .chip.link:hover { background: color-mix(in oklab, var(--industry) 15%, var(--surface)); }
-.btn-track { align-self: flex-start; margin-top: 16px; background: var(--track); border-color: var(--track); color: #fff; }
-:root.dark .btn-track { color: #2A0B14; }
-.btn-track:hover { background: var(--track-strong); border-color: var(--track-strong); }
-.cta-tile { border-color: color-mix(in oklab, var(--industry) 30%, var(--border)); }
+.status-pill {
+  display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px;
+  font-size: 13px; font-weight: 600; color: var(--industry);
+  background: color-mix(in oklab, var(--industry) 9%, var(--surface));
+  border: 1px solid color-mix(in oklab, var(--industry) 30%, var(--border));
+}
+.status-pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; box-shadow: 0 0 0 0 currentColor; animation: pulse 2.4s ease-out infinite; }
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--industry) 55%, transparent); } 70%, 100% { box-shadow: 0 0 0 7px transparent; } }
+@media (prefers-reduced-motion: reduce) { .status-pill::before { animation: none; } }
+.facts-tile { border-color: color-mix(in oklab, var(--industry) 30%, var(--border)); }
+.facts { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 4px 0 0; font-size: 14.5px; }
+.facts dt { color: var(--muted); }
+.facts dd { margin: 0; font-weight: 500; }
 
 /* ---------- Sections ---------- */
 section { padding: 40px 0 8px; }
@@ -252,7 +261,7 @@ footer { padding: 48px 0 56px; color: var(--muted); border-top: 1px solid var(--
   .stats { grid-template-columns: repeat(2, 1fr); }
   .col-4 { grid-column: span 6; }
   .col-6, .col-8 { grid-column: span 12; }
-  .cta-tile { grid-column: span 12; }
+  .facts-tile { grid-column: span 12; }
   .contact-btn { align-self: stretch; justify-content: center; }
 }
 @media (max-width: 680px) {
