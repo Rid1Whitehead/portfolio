@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research: nonverbal behaviour in collaborative learning | Ridwan Whitehead</title>
+<meta name="description" content="Gaze, posture and proximity shape how groups regulate their learning. Open source computer vision and multimodal LLM methods for classroom video, with a live demo.">
+<meta name="author" content="Ridwan Whitehead">
+<link rel="canonical" href="https://rid1whitehead.github.io/portfolio/research.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ridwan Whitehead">
+<meta property="og:locale" content="en_GB">
+<meta property="og:url" content="https://rid1whitehead.github.io/portfolio/research.html">
+<meta property="og:title" content="Research: nonverbal behaviour in collaborative learning | Ridwan Whitehead">
+<meta property="og:description" content="Gaze, posture and proximity shape how groups regulate their learning. Open source computer vision and multimodal LLM methods for classroom video, with a live demo.">
+<meta property="og:image" content="https://rid1whitehead.github.io/portfolio/media/photo.jpg">
+<meta property="og:image:alt" content="Portrait of Ridwan Whitehead">
+<meta name="twitter:card" content="summary">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111418" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600;700&amp;family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<script>
+  // Apply the saved or system theme before first paint
+  (function () { var t = null; try { t = localStorage.getItem('theme'); } catch (e) {} if (t === 'dark' || t === 'light') document.documentElement.setAttribute('data-theme', t); })();
+</script>
+
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="top-bar">
+  <div class="wrap">
+    <div class="top">
+      <a class="name" href="./">Ridwan Whitehead</a>
+      <nav id="site-nav" aria-label="Primary"><a href="research.html" aria-current="page">Research</a><a href="industry.html">Industry</a><a href="other.html">Other work</a><a href="publications.html">Publications</a><a href="cv.pdf" download="Ridwan_Whitehead_CV.pdf">CV</a></nav>
+      <div class="top-actions"><button class="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="4.5" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></g></svg></button><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu"><span></span><span></span></button></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section id="research" class="page-section" aria-labelledby="r-title">
+    <svg id="gazeLayer" aria-hidden="true">
+      <g id="proxG">
+        <line id="pline" stroke="#5BD69A" stroke-width="2.5" stroke-dasharray="9 7"/>
+        <rect id="pend" width="12" height="12" fill="#5BD69A"/>
+        <g id="plabel"><rect id="pbox" height="26" rx="3" fill="#5BD69A"/><text id="ptext" font-family="Familjen Grotesk, Arial, sans-serif" font-size="14" font-weight="600" fill="#0E1B2E" text-anchor="middle"></text></g>
+      </g>
+      <g id="gazeG"><line id="ray" stroke="#4FA3FF" stroke-width="3" stroke-linecap="round" opacity=".9"/><circle id="rayEnd" r="12" fill="none" stroke="#4FA3FF" stroke-width="3"/></g>
+    </svg>
+    <div class="wrap">
+      <h1 id="r-title">Gaze, posture and proximity shape how groups regulate their learning.</h1>
+      <p class="r-lede">I measure these nonverbal signals from ordinary classroom video with open source computer vision and multimodal LLM methods, so researchers can study real groups in real classrooms.</p>
+
+      <div class="observe">
+        <figure class="viewer">
+          <div class="shot">
+            <div class="frame">
+              <img src="media/photo.jpg" width="1042" height="894" alt="Portrait of Ridwan Whitehead with gaze, posture and proximity overlays" id="subject">
+              <svg viewBox="0 0 1042 894" aria-hidden="true">
+                <g class="layer prox" id="layer-prox"><rect x="510" y="588" width="24" height="24" fill="#5BD69A" stroke="#0E1B2E" stroke-width="3"/></g>
+                <g class="layer bones" id="layer-pose">
+                  <line x1="462" y1="318" x2="548" y2="320"/><line x1="462" y1="318" x2="500" y2="360"/><line x1="548" y1="320" x2="500" y2="360"/>
+                  <line x1="462" y1="318" x2="420" y2="345"/><line x1="548" y1="320" x2="620" y2="350"/><line x1="500" y1="360" x2="512" y2="478"/>
+                  <line x1="512" y1="478" x2="335" y2="560"/><line x1="512" y1="478" x2="785" y2="556"/><line x1="335" y1="560" x2="300" y2="860"/><line x1="785" y1="556" x2="880" y2="830"/>
+                  <circle cx="462" cy="318" r="10"/><circle cx="548" cy="320" r="10"/><circle cx="500" cy="360" r="10"/><circle cx="420" cy="345" r="10"/><circle cx="620" cy="350" r="10"/>
+                  <circle cx="512" cy="478" r="10"/><circle cx="335" cy="560" r="10"/><circle cx="785" cy="556" r="10"/><circle cx="300" cy="860" r="10"/><circle cx="880" cy="830" r="10"/>
+                </g>
+                <g class="layer" id="layer-eye"><circle cx="505" cy="318" r="8" fill="#4FA3FF"/></g>
+              </svg>
+            </div>
+            <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+          </div>
+          <figcaption>A demonstration on my own portrait. The overlays imitate what the workflows produce on classroom video.</figcaption>
+        </figure>
+
+        <div class="controls">
+          <h3>Turn signals on and off</h3>
+          <button class="toggle" type="button" data-layer="gaze" aria-pressed="true"><span class="sw"></span><span class="lbl">Gaze</span><span class="val" id="gaze-val">at the camera</span></button>
+          <button class="toggle" type="button" data-layer="pose" aria-pressed="true"><span class="sw"></span><span class="lbl">Posture</span><span class="val">upright, open</span></button>
+          <button class="toggle" type="button" data-layer="prox" aria-pressed="true"><span class="sw"></span><span class="lbl">Proximity</span><span class="val" id="prox-val">no one near</span></button>
+          <p class="hint">Move your pointer anywhere on the page, or tap on a phone, and my gaze follows it while the proximity line measures how far away you are.</p>
+        </div>
+      </div>
+
+      <ul class="r-work">
+        <li><img src="media/gaze-analysis.webp" alt="Gaze lines estimated between students"><h3>Gaze from 2D video</h3><p>Who looks at whom, from one front-facing camera.</p><div class="out"><a href="https://doi.org/10.1111/jcal.13022" target="_blank" rel="noopener">JCAL 2024</a><a href="https://doi.org/10.18608/jla.2025.8661" target="_blank" rel="noopener">JLA 2025</a></div></li>
+        <li><img src="media/mllm-posture.webp" alt="Workflow for posture analysis with multimodal LLMs"><h3>Posture with multimodal LLMs</h3><p>Large-scale posture coding of group video.</p><div class="out"><a href="https://doi.org/10.18608/jla.2025.8595" target="_blank" rel="noopener">JLA 2025</a><a href="https://github.com/Rid1Whitehead/MLLM-video-analysis" target="_blank" rel="noopener">Code</a></div></li>
+        <li><img src="media/proxemics-analysis.webp" alt="Distances between students measured from video"><h3>Gaze and proxemics in AI-supported groups</h3><p>How gaze and distance shape and signal shared regulation.</p><div class="out"><a href="https://link.springer.com/article/10.1007/s11412-026-09478-7" target="_blank" rel="noopener">IJCSCL 2026</a></div></li>
+      </ul>
+
+      <div class="thesis">
+        <p><strong>How verbal and non-verbal behaviours shape collaborative learning processes: Towards multimodal evidence for socially shared regulation</strong>Doctoral thesis, University of Oulu, 2026. Acta Universitatis Ouluensis E 257.</p>
+        <a class="btn-frame" href="https://oulurepo.oulu.fi/handle/10024/65253" target="_blank" rel="noopener">Read the thesis</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer>
+  <div class="wrap">
+    <a class="mail" href="mailto:ridwan.whitehead@oulu.fi">ridwan.whitehead@oulu.fi</a>
+    <nav aria-label="Profiles"><a href="https://scholar.google.com/citations?user=q07J89kAAAAJ&amp;hl=en">Google Scholar</a><a href="https://orcid.org/0009-0002-2888-7304">ORCID</a><a href="https://github.com/Rid1Whitehead">GitHub</a><a href="https://www.linkedin.com/in/ridwanwhitehead/">LinkedIn</a></nav>
+  </div>
+</footer>
+<script>
+(function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Research: signal layers. Gaze (a ray from the eyes) and proximity (a measured line from the torso)
+  // both follow the pointer across the whole section, eased for smooth motion.
+  const research = document.getElementById('research');
+  const gazeG = document.getElementById('gazeG'), proxG = document.getElementById('proxG');
+  const ray = document.getElementById('ray'), rayEnd = document.getElementById('rayEnd');
+  const pline = document.getElementById('pline'), pend = document.getElementById('pend'), plabel = document.getElementById('plabel'), pbox = document.getElementById('pbox'), ptext = document.getElementById('ptext');
+  const subject = document.getElementById('subject'), gazeVal = document.getElementById('gaze-val'), proxVal = document.getElementById('prox-val');
+  document.querySelectorAll('.toggle').forEach(btn => {
+    const name = btn.dataset.layer;
+    const sync = () => {
+      const on = btn.getAttribute('aria-pressed') === 'true';
+      if (name === 'gaze') { gazeG.style.opacity = on ? 1 : 0; document.getElementById('layer-eye').classList.toggle('off', !on); }
+      else if (name === 'prox') { proxG.style.opacity = on ? 1 : 0; document.getElementById('layer-prox').classList.toggle('off', !on); }
+      else document.getElementById('layer-' + name).classList.toggle('off', !on);
+    };
+    sync();
+    btn.addEventListener('click', () => { btn.setAttribute('aria-pressed', String(btn.getAttribute('aria-pressed') !== 'true')); sync(); });
+  });
+  [gazeG, proxG].forEach(g => g.style.transition = 'opacity .25s');
+
+  let target = null, gcur = null, pcur = null, running = false;
+  function anchors() {
+    const r = subject.getBoundingClientRect();
+    const at = (x, y) => ({ x: r.left + r.width * x / 1042, y: r.top + r.height * y / 894 });
+    return { eye: at(505, 318), torso: at(522, 600), scale: 1042 / r.width };
+  }
+  function drawGaze(p, e) {
+    ray.setAttribute('x1', e.x); ray.setAttribute('y1', e.y); ray.setAttribute('x2', p.x); ray.setAttribute('y2', p.y);
+    rayEnd.setAttribute('cx', p.x); rayEnd.setAttribute('cy', p.y);
+    const d = Math.hypot(p.x - e.x, p.y - e.y);
+    rayEnd.setAttribute('opacity', Math.min(1, d / 60));
+    if (d < 6) { gazeVal.textContent = 'at the camera'; return; }
+    const yaw = Math.round(Math.atan2(p.x - e.x, 900) * 180 / Math.PI), pitch = Math.round(Math.atan2(e.y - p.y, 900) * 180 / Math.PI);
+    gazeVal.textContent = `${Math.abs(yaw)}° ${yaw < 0 ? 'left' : 'right'}, ${Math.abs(pitch)}° ${pitch < 0 ? 'down' : 'up'}`;
+  }
+  function drawProx(p, t, scale) {
+    pline.setAttribute('x1', t.x); pline.setAttribute('y1', t.y); pline.setAttribute('x2', p.x); pline.setAttribute('y2', p.y);
+    pend.setAttribute('x', p.x - 6); pend.setAttribute('y', p.y - 6);
+    const d = Math.hypot(p.x - t.x, p.y - t.y), show = d > 30;
+    pend.setAttribute('opacity', show ? 1 : 0); plabel.setAttribute('opacity', show ? 1 : 0);
+    if (!show) { proxVal.textContent = 'no one near'; return; }
+    const px = Math.round(d * scale) + ' px';
+    const mx = (t.x + p.x) / 2, my = (t.y + p.y) / 2, w = px.length * 8.6 + 16;
+    pbox.setAttribute('x', mx - w / 2); pbox.setAttribute('y', my - 13); pbox.setAttribute('width', w);
+    ptext.setAttribute('x', mx); ptext.setAttribute('y', my + 5); ptext.textContent = px;
+    proxVal.textContent = px + ' from you';
+  }
+  function ease(cur, goal, k) { cur.x += (goal.x - cur.x) * k; cur.y += (goal.y - cur.y) * k; return Math.hypot(goal.x - cur.x, goal.y - cur.y); }
+  function tick() {
+    const a = anchors();
+    if (!gcur) gcur = { ...a.eye }; if (!pcur) pcur = { ...a.torso };
+    const k = reduce ? 1 : 0.12;
+    const dg = ease(gcur, target || a.eye, k), dp = ease(pcur, target || a.torso, reduce ? 1 : 0.09);
+    drawGaze(gcur, a.eye); drawProx(pcur, a.torso, a.scale);
+    if (dg > 0.3 || dp > 0.3) requestAnimationFrame(tick); else running = false;
+  }
+  function kick() { if (!running) { running = true; requestAnimationFrame(tick); } }
+  // The overlay is fixed to the viewport, so the lines can reach anywhere on the page, header and footer included.
+  function point(ev) { target = { x: ev.clientX, y: ev.clientY }; kick(); }
+  document.addEventListener('pointermove', point);
+  document.addEventListener('pointerdown', point);
+  document.addEventListener('pointerout', ev => { if (!ev.relatedTarget) { target = null; kick(); } });
+  window.addEventListener('scroll', kick, { passive: true });
+  window.addEventListener('resize', () => { gcur = pcur = null; kick(); });
+  kick();
+
+})();
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
